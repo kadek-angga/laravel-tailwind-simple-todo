@@ -26,8 +26,19 @@
                     ])
                 >
                     <div class="flex-1 pr-8">
-                        <h3 class="text-lg font-semibold">{{ $todo->title }}</h3>
-                        <p class="text-gray-500">{{ $todo->description }}</p>
+                        <h3 @class([
+                                "text-lg font-semibold",
+                                $todo->is_done ? 'line-through' : ''
+                        ])>
+                            {{ $todo->title }}
+                        </h3>
+                        <p @class([
+                            "text-gray-500",
+                            $todo->is_done ? 'line-through' : ''
+                        ])
+                        >
+                            {{ $todo->description }}
+                        </p>
                     </div>
                     
                     <div class="flex space-x-3">
